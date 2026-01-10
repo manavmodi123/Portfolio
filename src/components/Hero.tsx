@@ -1,128 +1,132 @@
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-react";
 
 const Hero = () => {
+  const roles = ["Full Stack Developer", "Data Scientist", "Problem Solver"];
+
   return (
-    <section id="home" className="min-h-screen flex items-center section-padding pt-32">
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm text-muted-foreground">Available for opportunities</span>
-            </div>
+    <section id="home" className="min-h-screen flex flex-col justify-center section-padding pt-32 relative overflow-hidden">
+      {/* Background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full" />
+      </div>
 
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold leading-tight">
-                Hello, I'm{" "}
-                <span className="text-gradient-animate">Manav</span>
-                <br />
-                Full Stack Engineer
-                <br />
-                Based In <span className="text-primary">Dublin</span>
-              </h1>
+      <div className="container-custom relative z-10">
+        <div className="max-w-5xl mx-auto">
+          {/* Top label */}
+          <div className="animate-fade-in-up mb-8">
+            <span className="text-primary font-semibold tracking-widest uppercase text-sm">
+              Software Developer & Data Scientist
+            </span>
+          </div>
 
-              <p className="text-lg text-muted-foreground max-w-xl leading-relaxed">
-                Ambitious Full Stack Engineer with expertise in React, Node.js, TypeScript, 
-                and cloud technologies. Passionate about building scalable applications 
-                and delivering impactful solutions.
-              </p>
-            </div>
+          {/* Main heading */}
+          <div className="space-y-4 animate-fade-in-up mb-8">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[0.9]">
+              <span className="text-muted-foreground">HELLO,</span>
+              <br />
+              <span className="text-foreground">I'M </span>
+              <span className="gradient-text">MANAV</span>
+            </h1>
+          </div>
 
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-semibold hover:opacity-90 transition-all hover:gap-3"
-              >
-                View Projects
-                <ArrowRight size={18} />
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-full font-semibold text-foreground hover:bg-secondary transition-colors"
-              >
-                Contact Me
-              </a>
-            </div>
+          {/* Description */}
+          <div className="max-w-2xl animate-fade-in-up mb-10" style={{ animationDelay: "0.2s" }}>
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              I build <span className="text-foreground font-medium">scalable software</span> and{" "}
+              <span className="text-foreground font-medium">intelligent data solutions</span>. 
+              With a strong background in Python, C++, and React.js, I turn complex problems 
+              into elegant, efficient code.
+            </p>
+          </div>
 
-            {/* Social Links */}
-            <div className="flex items-center gap-4 pt-4">
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center gap-4 animate-fade-in-up mb-12" style={{ animationDelay: "0.3s" }}>
+            <a
+              href="#projects"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:opacity-90 transition-all hover:gap-3 group"
+            >
+              View Projects
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 rounded-full font-semibold text-primary hover:bg-primary/10 transition-colors"
+            >
+              <FileText size={18} />
+              Download Resume
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-full font-semibold text-foreground hover:bg-secondary transition-colors"
+            >
+              Contact Me
+            </a>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-6 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+            <span className="text-muted-foreground text-sm">Find me on</span>
+            <div className="flex items-center gap-3">
               <a
                 href="https://github.com/manavmodii"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card-hover p-4 rounded-xl group"
+                className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
               >
-                <Github size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                <Github size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
               <a
                 href="https://linkedin.com/in/manavmodi123"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card-hover p-4 rounded-xl group"
+                className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
               >
-                <Linkedin size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                <Linkedin size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
               <a
                 href="mailto:modimanav999@gmail.com"
-                className="glass-card-hover p-4 rounded-xl group"
+                className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
               >
-                <Mail size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                <Mail size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
-            </div>
-          </div>
-
-          {/* Right Content - Profile Image */}
-          <div className="relative flex justify-center lg:justify-end animate-fade-in-up-delay">
-            <div className="relative">
-              {/* Outer glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-accent/20 to-primary/10 rounded-[40%_60%_60%_40%/60%_40%_60%_40%] scale-125 blur-3xl animate-pulse" />
-              
-              {/* Animated gradient ring */}
-              <div className="relative w-72 h-72 md:w-96 md:h-96">
-                <div className="absolute inset-0 rounded-[40%_60%_60%_40%/60%_40%_60%_40%] p-1 bg-gradient-to-br from-primary via-accent to-primary animate-spin-slow">
-                  <div className="absolute inset-0 rounded-[40%_60%_60%_40%/60%_40%_60%_40%] bg-gradient-to-br from-primary via-accent to-primary" />
-                </div>
-                
-                {/* Inner container */}
-                <div className="absolute inset-1 rounded-[38%_62%_62%_38%/62%_38%_62%_38%] bg-secondary flex items-center justify-center overflow-hidden">
-                  {/* Subtle inner glow */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-                  
-                  {/* Initials with enhanced styling */}
-                  <div className="relative z-10">
-                    <span className="text-7xl md:text-8xl font-heading font-bold bg-gradient-to-br from-primary via-primary/80 to-accent bg-clip-text text-transparent drop-shadow-2xl">
-                      MM
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating badges with enhanced styling */}
-              <div className="absolute -top-6 right-0 md:-right-6 glass-card px-5 py-2.5 rounded-xl floating border border-primary/20 shadow-lg shadow-primary/10">
-                <span className="text-sm font-semibold text-foreground">React</span>
-              </div>
-              <div className="absolute -bottom-6 left-0 md:-left-6 glass-card px-5 py-2.5 rounded-xl floating border border-accent/20 shadow-lg shadow-accent/10" style={{ animationDelay: "1s" }}>
-                <span className="text-sm font-semibold text-foreground">Node.js</span>
-              </div>
-              <div className="absolute top-1/2 -translate-y-1/2 -right-12 md:-right-16 glass-card px-5 py-2.5 rounded-xl floating border border-primary/20 shadow-lg shadow-primary/10" style={{ animationDelay: "2s" }}>
-                <span className="text-sm font-semibold text-foreground">AWS</span>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+          <span className="text-muted-foreground text-xs tracking-widest uppercase">Scroll</span>
+          <ArrowDown size={16} className="text-primary" />
+        </div>
+
+        {/* Stats - positioned on the right for larger screens */}
+        <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 flex-col gap-8">
+          {[
+            { value: "1", label: "Year Exp" },
+            { value: "10+", label: "Projects" },
+            { value: "4+", label: "Certs" },
+          ].map((stat, index) => (
+            <div key={index} className="text-right">
+              <h3 className="text-3xl font-heading font-bold gradient-text">{stat.value}</h3>
+              <p className="text-muted-foreground text-xs uppercase tracking-wider">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile Stats */}
+      <div className="lg:hidden container-custom mt-16">
+        <div className="grid grid-cols-3 gap-4">
           {[
             { value: "1", label: "Year Experience" },
-            { value: "10+", label: "Projects Completed" },
-            { value: "2", label: "Internships" },
+            { value: "10+", label: "Projects" },
             { value: "4+", label: "Certifications" },
           ].map((stat, index) => (
-            <div key={index} className="glass-card p-6 text-center">
-              <h3 className="text-3xl md:text-4xl font-heading font-bold gradient-text">{stat.value}</h3>
-              <p className="text-muted-foreground text-sm mt-2">{stat.label}</p>
+            <div key={index} className="glass-card p-4 text-center">
+              <h3 className="text-2xl font-heading font-bold gradient-text">{stat.value}</h3>
+              <p className="text-muted-foreground text-xs mt-1">{stat.label}</p>
             </div>
           ))}
         </div>
