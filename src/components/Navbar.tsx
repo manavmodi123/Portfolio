@@ -31,7 +31,7 @@ const Navbar = () => {
     >
       <div className="container-custom">
         <div className="flex items-center justify-between h-20">
-          <a href="#home" className="text-2xl font-heading font-bold">
+          <a href="#home" className="text-2xl font-heading font-bold pl-4">
             <span className="text-foreground">Manav</span>
             <span className="gradient-text">Modi</span>
           </a>
