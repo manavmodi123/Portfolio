@@ -13,7 +13,7 @@ const Contact = () => {
           </a>
           
           <div className="flex justify-center gap-8 mt-12">
-            <a href="https://www.linkedin.com/in/manavmodi/" className="flex items-center gap-2 text-gray-500 hover:text-white font-bold tracking-widest uppercase text-xs">LinkedIn <ArrowUpRight size={14}/></a>
+            <a href="https://www.linkedin.com/in/manavmodii/" className="flex items-center gap-2 text-gray-500 hover:text-white font-bold tracking-widest uppercase text-xs">LinkedIn <ArrowUpRight size={14}/></a>
             <a href="https://github.com/manavmodi123" className="flex items-center gap-2 text-gray-500 hover:text-white font-bold tracking-widest uppercase text-xs">GitHub <ArrowUpRight size={14}/></a>
           </div>
         </div>
