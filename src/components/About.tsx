@@ -3,10 +3,10 @@ import { GraduationCap, MapPin, Calendar, Zap } from "lucide-react";
 const About = () => {
   const education = [
     {
-      degree: "MSc in Data Science",
+      degree: "MSc in Computing Science",
       institution: "University College Cork, Ireland",
       period: "2024 – 2025",
-      current: true,
+      current: false,
     },
     {
       degree: "B.Tech in Computer Engineering",
@@ -37,7 +37,7 @@ const About = () => {
             <div className="space-y-6">
               <p className="text-xl md:text-2xl text-foreground leading-relaxed">
                 I am a results-oriented developer and an{" "}
-                <span className="text-primary font-semibold">MSc Data Science Graduate</span> from UCC. 
+                <span className="text-primary font-semibold">MSc Computing Science Graduate</span> from UCC. 
                 I don't just write code; I build solutions that improve business metrics.
               </p>
 

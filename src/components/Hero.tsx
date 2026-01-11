@@ -2,7 +2,7 @@ import { ArrowRight, ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-
 import { useState, useEffect } from "react";
 
 const Hero = () => {
-  const roles = ["Software Developer", "Data Scientist", "Problem Solver"];
+  const roles = ["Software Developer", "Full Stack Engineer", "Problem Solver"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -108,7 +108,7 @@ const Hero = () => {
             <span className="text-muted-foreground text-sm">Find me on</span>
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com/manavmodii"
+                href="https://github.com/manavmodi123"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
@@ -116,7 +116,7 @@ const Hero = () => {
                 <Github size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
               </a>
               <a
-                href="https://linkedin.com/in/manavmodi123"
+                href="https://linkedin.com/in/manavmodii"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
