@@ -54,10 +54,10 @@ const Contact = () => {
             {contactInfo.map((info, index) => (
               <div
                 key={index}
-                className="glass-card-hover p-5 flex items-center gap-4"
+                className="glass-card-hover p-5 flex items-center gap-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)]"
               >
-                <div className="p-3 rounded-xl bg-primary/10">
-                  <info.icon size={22} className="text-primary" />
+                <div className="p-3 rounded-xl bg-primary/10 transition-all duration-300 group-hover:bg-primary/20">
+                  <info.icon size={22} className="text-primary transition-transform duration-300" />
                 </div>
                 <div>
                   <p className="text-muted-foreground text-sm">{info.label}</p>
@@ -84,7 +84,7 @@ const Contact = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card-hover p-4 flex items-center gap-3 group flex-1"
+                className="glass-card-hover p-4 flex items-center gap-3 group flex-1 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)]"
               >
                 <social.icon size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
                 <span className="font-medium">{social.label}</span>
