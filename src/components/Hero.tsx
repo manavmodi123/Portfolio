@@ -1,7 +1,36 @@
 import { ArrowRight, ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
-  const roles = ["Full Stack Developer", "Data Scientist", "Problem Solver"];
+  const roles = ["Software Developer", "Data Scientist", "Problem Solver"];
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const currentRole = roles[currentRoleIndex];
+    const typingSpeed = isDeleting ? 50 : 100;
+    const pauseDelay = 2000;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (displayedText.length < currentRole.length) {
+          setDisplayedText(currentRole.slice(0, displayedText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), pauseDelay);
+        }
+      } else {
+        if (displayedText.length > 0) {
+          setDisplayedText(currentRole.slice(0, displayedText.length - 1));
+        } else {
+          setIsDeleting(false);
+          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+        }
+      }
+    }, typingSpeed);
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, currentRoleIndex, roles]);
 
   return (
     <section id="home" className="min-h-screen flex flex-col justify-center section-padding pt-32 relative overflow-hidden">
@@ -29,6 +58,15 @@ const Hero = () => {
               <span className="text-foreground">I'M </span>
               <span className="gradient-text">MANAV</span>
             </h1>
+            <div className="h-10 md:h-12">
+              <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground">
+                I'm a{" "}
+                <span className="text-primary font-semibold">
+                  {displayedText}
+                  <span className="animate-pulse">|</span>
+                </span>
+              </p>
+            </div>
           </div>
 
           {/* Description */}
