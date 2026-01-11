@@ -1,8 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Disables the standard system cursor completely */
+* {
+  cursor: none !important;
+}
+
+/* Ensures custom cursor logic handles all interactive elements */
+a, button {
+  cursor: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #0a0a0a;
+}
+
+/* Custom Selection Color */
+::selection {
+  background: #E67E22;
+  color: white;
+}
+
+/* Custom Scrollbar for Chrome/Safari */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E67E22;
+}
+
+
 
 @layer base {
   :root {

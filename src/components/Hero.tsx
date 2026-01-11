@@ -1,172 +1,92 @@
-import { ArrowRight, ArrowDown, Github, Linkedin, Mail, FileText } from "lucide-react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 
-const Hero = () => {
-  const roles = ["Software Developer", "Full Stack Engineer", "Problem Solver"];
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
+interface StatItem {
+  v: string;
+  l: string;
+}
+
+const Hero: React.FC = () => {
+  const roles: string[] = ["Software Developer", "Full Stack Engineer", "Problem Solver"];
+  const [index, setIndex] = useState<number>(0);
+  const [text, setText] = useState<string>("");
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
   useEffect(() => {
-    const currentRole = roles[currentRoleIndex];
-    const typingSpeed = isDeleting ? 50 : 100;
-    const pauseDelay = 2000;
+    const currentRole = roles[index];
+    const typingSpeed = isDeleting ? 40 : 120;
+    const pauseTime = 2000;
 
-    const timeout = setTimeout(() => {
+    const handleTyping = () => {
       if (!isDeleting) {
-        if (displayedText.length < currentRole.length) {
-          setDisplayedText(currentRole.slice(0, displayedText.length + 1));
-        } else {
-          setTimeout(() => setIsDeleting(true), pauseDelay);
+        setText(currentRole.slice(0, text.length + 1));
+        if (text.length === currentRole.length) {
+          setTimeout(() => setIsDeleting(true), pauseTime);
         }
       } else {
-        if (displayedText.length > 0) {
-          setDisplayedText(currentRole.slice(0, displayedText.length - 1));
-        } else {
+        setText(currentRole.slice(0, text.length - 1));
+        if (text.length === 0) {
           setIsDeleting(false);
-          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+          setIndex((prev) => (prev + 1) % roles.length);
         }
       }
-    }, typingSpeed);
+    };
 
+    const timeout = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, currentRoleIndex, roles]);
+  }, [text, isDeleting, index, roles]);
+
+  const stats: StatItem[] = [
+    { v: "01", l: "YEAR EXP" },
+    { v: "10+", l: "PROJECTS" },
+    { v: "04+", l: "CERTS" }
+  ];
 
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center section-padding pt-32 relative overflow-hidden">
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-primary/5 via-transparent to-transparent rounded-full" />
-      </div>
-
-      <div className="container-custom relative z-10">
-        <div className="max-w-5xl mx-auto">
-          {/* Top label */}
-          <div className="animate-fade-in-up mb-8">
-            <span className="text-primary font-semibold tracking-widest uppercase text-sm">
-              Software Developer
-            </span>
-          </div>
-
-          {/* Main heading */}
-          <div className="space-y-4 animate-fade-in-up mb-8">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold leading-[0.9]">
-              <span className="text-muted-foreground">HELLO,</span>
-              <br />
-              <span className="text-foreground">I'M </span>
-              <span className="gradient-text">MANAV</span>
+    <section id="home" className="min-h-screen flex items-center bg-[#0a0a0a] relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10 pt-20">
+        <div className="grid lg:grid-cols-12 gap-10 items-end">
+          
+          <div className="lg:col-span-9">
+            <h1 className="text-[11vw] md:text-[9rem] font-black tracking-tighter leading-[0.8] mb-10">
+              <span className="text-white/10 block uppercase">HELLO,</span>
+              <span className="text-white uppercase">I'M </span>
+              <span className="text-[#E67E22] uppercase">MANAV</span>
             </h1>
-            <div className="h-10 md:h-12">
-              <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground">
-                I'm a{" "}
-                <span className="text-primary font-semibold">
-                  {displayedText}
-                  <span className="animate-pulse">|</span>
+            
+            <div className="max-w-2xl">
+              <p className="text-2xl md:text-5xl font-light text-white/80 tracking-tight mb-8">
+                A <span className="text-[#E67E22] font-bold italic underline decoration-white/10">
+                  {text}
+                  <span className="animate-pulse ml-1 inline-block bg-[#E67E22] w-1 h-8 md:h-12 align-middle"></span>
                 </span>
               </p>
+              
+              <div className="flex flex-wrap gap-8 items-center pt-4">
+                <a href="#projects" className="px-10 py-5 bg-[#E67E22] text-white rounded-full font-black uppercase tracking-widest text-[10px] flex items-center gap-4 hover:bg-white hover:text-black transition-all">
+                  VIEW SELECTED WORKS <ArrowRight size={16} />
+                </a>
+                <div className="flex gap-6 border-l border-white/10 pl-8 text-gray-400">
+                  <a href="https://github.com/manavmodi123" target="_blank" rel="noreferrer"><Github className="hover:text-white transition-colors" /></a>
+                  <a href="https://linkedin.com/in/manavmodii" target="_blank" rel="noreferrer"><Linkedin className="hover:text-white transition-colors" /></a>
+                  <a href="mailto:modimanav999@gmail.com"><Mail className="hover:text-white transition-colors" /></a>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Description */}
-          <div className="max-w-2xl animate-fade-in-up mb-10" style={{ animationDelay: "0.2s" }}>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              I build <span className="text-foreground font-medium">scalable software</span> and{" "}
-              <span className="text-foreground font-medium">intelligent data solutions</span>. 
-              With a strong background in Python, C++, and React.js, I turn complex problems 
-              into elegant, efficient code.
-            </p>
+          <div className="lg:col-span-3 border-l border-white/5 pl-10 hidden lg:flex flex-col gap-16">
+            {stats.map((s, i) => (
+              <div key={i} className="group">
+                <h3 className="text-7xl font-black text-white/20 group-hover:text-[#E67E22] transition-colors">
+                  {s.v}
+                </h3>
+                <p className="text-[10px] font-black tracking-[0.4em] text-gray-400 uppercase mt-2">
+                  {s.l}
+                </p>
+              </div>
+            ))}
           </div>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center gap-4 animate-fade-in-up mb-12" style={{ animationDelay: "0.3s" }}>
-            <a
-              href="#projects"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold hover:opacity-90 transition-all hover:gap-3 group"
-            >
-              View Projects
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-primary/50 rounded-full font-semibold text-primary hover:bg-primary/10 transition-colors"
-            >
-              <FileText size={18} />
-              Download Resume
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 border border-border rounded-full font-semibold text-foreground hover:bg-secondary transition-colors"
-            >
-              Contact Me
-            </a>
-          </div>
-
-          {/* Social Links */}
-          <div className="flex items-center gap-6 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-            <span className="text-muted-foreground text-sm">Find me on</span>
-            <div className="flex items-center gap-3">
-              <a
-                href="https://github.com/manavmodi123"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
-              >
-                <Github size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-              <a
-                href="https://linkedin.com/in/manavmodii"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
-              >
-                <Linkedin size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-              <a
-                href="mailto:modimanav999@gmail.com"
-                className="p-3 rounded-full border border-border hover:border-primary/50 hover:bg-primary/10 transition-all group"
-              >
-                <Mail size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-muted-foreground text-xs tracking-widest uppercase">Scroll</span>
-          <ArrowDown size={16} className="text-primary" />
-        </div>
-
-        {/* Stats - positioned on the right for larger screens */}
-        <div className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 flex-col gap-8">
-          {[
-            { value: "1", label: "Year Exp" },
-            { value: "10+", label: "Projects" },
-            { value: "4+", label: "Certs" },
-          ].map((stat, index) => (
-            <div key={index} className="text-right">
-              <h3 className="text-3xl font-heading font-bold gradient-text">{stat.value}</h3>
-              <p className="text-muted-foreground text-xs uppercase tracking-wider">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Mobile Stats */}
-      <div className="lg:hidden container-custom mt-16">
-        <div className="grid grid-cols-3 gap-4">
-          {[
-            { value: "1", label: "Year Experience" },
-            { value: "10+", label: "Projects" },
-            { value: "4+", label: "Certifications" },
-          ].map((stat, index) => (
-            <div key={index} className="glass-card p-4 text-center">
-              <h3 className="text-2xl font-heading font-bold gradient-text">{stat.value}</h3>
-              <p className="text-muted-foreground text-xs mt-1">{stat.label}</p>
-            </div>
-          ))}
         </div>
       </div>
     </section>

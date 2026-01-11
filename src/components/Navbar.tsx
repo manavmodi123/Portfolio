@@ -1,93 +1,48 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
-
-const navLinks = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Services", href: "#services" },
-  { name: "Contact", href: "#contact" },
-];
+import { Menu, X, Download } from "lucide-react";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navItems = ["About", "Experience", "Projects", "Services", "Contact"];
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/80 backdrop-blur-xl border-b border-border/50" : "bg-transparent"
-      }`}
-    >
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
-          <a href="#home" className="text-2xl font-heading font-bold pl-4">
-            <span className="text-foreground">Manav</span>
-            <span className="gradient-text">Modi</span>
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? "py-4" : "py-10"}`}>
+      <div className="container mx-auto px-6">
+        <div className={`flex items-center justify-between px-8 h-16 rounded-full transition-all border border-white/5 ${scrolled ? "bg-black/60 backdrop-blur-xl" : "bg-transparent"}`}>
+          <a href="#home" className="text-xl font-bold tracking-tighter uppercase">
+            MANAV <span className="text-[#E67E22]">MODI</span>
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-medium"
-              >
-                {link.name}
+            {navItems.map((item) => (
+              <a key={item} href={`#${item.toLowerCase()}`} className="text-[10px] font-black tracking-[0.3em] uppercase text-gray-400 hover:text-white transition-colors">
+                {item}
               </a>
             ))}
-            <a
-              href="#contact"
-              className="px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+            
+            {/* Updated Button: Resume Link */}
+            <a 
+              href="https://drive.google.com/file/d/1uwKVPLqi3dbvYuAOC_DjHZe6PGcB3amn/view?usp=drive_link" // Replace with your actual file path in the public folder
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-6 py-2 bg-[#E67E22] text-white rounded-full text-xs font-bold hover:scale-105 hover:bg-white hover:text-black transition-all duration-300 shadow-lg shadow-[#E67E22]/20"
             >
-              Let's Talk
+              RESUME <Download size={14} />
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground p-2"
-            onClick={() => setIsOpen(!isOpen)}
-          >
+          <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden absolute top-20 left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/50 py-6">
-            <div className="flex flex-col gap-4 px-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-base font-medium py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
-              ))}
-              <a
-                href="#contact"
-                className="px-5 py-3 bg-primary text-primary-foreground rounded-full text-sm font-semibold hover:opacity-90 transition-opacity text-center mt-2"
-                onClick={() => setIsOpen(false)}
-              >
-                Let's Talk
-              </a>
-            </div>
-          </div>
-        )}
       </div>
     </nav>
   );

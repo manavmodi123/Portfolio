@@ -2,118 +2,45 @@ import { GraduationCap, MapPin, Calendar, Zap } from "lucide-react";
 
 const About = () => {
   const education = [
-    {
-      degree: "MSc in Computing Science",
-      institution: "University College Cork, Ireland",
-      period: "2024 – 2025",
-      current: false,
-    },
-    {
-      degree: "B.Tech in Computer Engineering",
-      institution: "K. J. Somaiya College of Engineering, Mumbai",
-      period: "2020 – 2024",
-      current: false,
-    },
+    { degree: "MSc in Computing Science", institution: "University College Cork, Ireland", period: "2024 – 2025" },
+    { degree: "B.Tech in Computer Engineering", institution: "K. J. Somaiya College, Mumbai", period: "2020 – 2024" },
   ];
 
   return (
-    <section id="about" className="section-padding bg-secondary/30 relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-
-      <div className="container-custom relative z-10">
-        {/* Section header */}
-        <div className="mb-16">
-          <span className="text-primary font-semibold tracking-widest uppercase text-sm">Who Am I?</span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mt-4 leading-tight">
-            <span className="gradient-text">DRIVEN BY IMPACT.</span>
-          </h2>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-          {/* Left - Main content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <p className="text-xl md:text-2xl text-foreground leading-relaxed">
-                I am a results-oriented developer and an{" "}
-                <span className="text-primary font-semibold">MSc Computing Science Graduate</span> from UCC. 
-                I don't just write code; I build solutions that improve business metrics.
-              </p>
-
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                My work is defined by <span className="text-foreground">efficiency</span>,{" "}
-                <span className="text-foreground">scalability</span>, and{" "}
-                <span className="text-foreground">user-centric design</span>.
-              </p>
-
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Whether it's optimizing backend queries to shave seconds off load times or designing 
-                algorithms that predict user behavior, I love the challenge of making things better. 
-                I thrive in Agile environments and am passionate about delivering impactful solutions.
-              </p>
+    <section id="about" className="py-24 bg-[#0F0F0F] relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <span className="text-[#E67E22] font-black tracking-[0.3em] text-xs uppercase">Background</span>
+            <h2 className="text-5xl md:text-7xl font-bold text-white mt-4 mb-8 leading-tight tracking-tighter">
+              DRIVEN BY <span className="text-gray-500">IMPACT.</span>
+            </h2>
+            <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
+              <p>I am a results-oriented developer and an <span className="text-white font-semibold">MSc Computing Science Graduate</span> from UCC.</p>
+              <p>My work is defined by <span className="text-[#E67E22]">efficiency</span>, <span className="text-[#E67E22]">scalability</span>, and <span className="text-[#E67E22]">user-centric design</span>.</p>
             </div>
-
-            {/* Key highlights */}
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: Zap, text: "Fast Learner" },
-                { icon: MapPin, text: "Dublin, Ireland" },
-              ].map((item, index) => (
-                <div key={index} className="glass-card p-4 flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-primary/20">
-                    <item.icon size={18} className="text-primary" />
-                  </div>
-                  <span className="text-foreground font-medium">{item.text}</span>
-                </div>
-              ))}
+            <div className="flex gap-4 mt-10">
+              <div className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-4">
+                <Zap className="text-[#E67E22]" /> <span className="text-white font-bold">Fast Learner</span>
+              </div>
+              <div className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center gap-4">
+                <MapPin className="text-[#E67E22]" /> <span className="text-white font-bold">Dublin, IE</span>
+              </div>
             </div>
           </div>
 
-          {/* Right - Education */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-heading font-bold flex items-center gap-3">
-              <div className="p-2 rounded-lg bg-primary/20">
-                <GraduationCap className="text-primary" size={24} />
-              </div>
-              Education
+          <div className="space-y-8 bg-white/5 p-10 rounded-[2rem] border border-white/10 backdrop-blur-sm">
+             <h3 className="text-2xl font-bold text-white flex items-center gap-3">
+              <GraduationCap className="text-[#E67E22]" /> Education
             </h3>
-
-            <div className="space-y-4">
-              {education.map((edu, index) => (
-                <div key={index} className="glass-card-hover p-6 relative group">
-                  {edu.current && (
-                    <span className="absolute top-4 right-4 px-3 py-1.5 bg-accent/20 text-accent text-xs rounded-full font-semibold uppercase tracking-wider">
-                      Current
-                    </span>
-                  )}
-                  <h4 className="text-lg font-heading font-bold text-foreground">{edu.degree}</h4>
-                  <p className="text-muted-foreground mt-2">{edu.institution}</p>
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm mt-3">
-                    <Calendar size={14} className="text-primary" />
-                    <span>{edu.period}</span>
-                  </div>
-                  
-                  {/* Hover accent */}
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary/0 group-hover:bg-primary transition-colors rounded-l-2xl" />
-                </div>
-              ))}
-            </div>
-
-            {/* Tech stack preview */}
-            <div className="glass-card p-6 mt-6">
-              <p className="text-sm text-muted-foreground mb-4">Core Technologies</p>
-              <div className="flex flex-wrap gap-2">
-                {["Python", "React.js", "Node.js", "TypeScript", "AWS", "Azure"].map((tech) => (
-                  <span
-                    key={tech}
-                    className="px-3 py-1.5 bg-secondary border border-border rounded-full text-sm text-foreground"
-                  >
-                    {tech}
-                  </span>
-                ))}
+            {education.map((edu, i) => (
+              <div key={i} className="relative pl-6 border-l border-white/10">
+                <div className="absolute -left-[5px] top-2 w-2 h-2 rounded-full bg-[#E67E22]" />
+                <h4 className="text-white font-bold text-xl">{edu.degree}</h4>
+                <p className="text-[#E67E22] text-sm font-medium mt-1">{edu.institution}</p>
+                <p className="text-gray-500 text-sm mt-2 flex items-center gap-2"><Calendar size={14}/> {edu.period}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

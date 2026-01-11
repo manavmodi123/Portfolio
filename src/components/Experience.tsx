@@ -3,106 +3,74 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 const Experience = () => {
   const experiences = [
     {
-      title: "Software Engineering Intern",
+      title: "Software Developer Intern",
       company: "Relic Fresh Limited",
-      location: "Remote",
       period: "Nov 2025 – Present",
+      location: "Ireland, Remote",
       achievements: [
-        "Developing and maintaining backend services using Node.js and REST APIs and React-based frontends for internal systems",
-        "Collaborating with cross-functional teams to integrate GenAI-enabled automation into operational workflows",
-        "Contributing to cloud-native, serverless microservices, improving scalability, reliability, and production stability",
-      ],
+        "Developing backend services using Node.js and REST APIs for internal systems.",
+        "Integrating GenAI-enabled automation into operational workflows.",
+        "Contributing to cloud-native, serverless microservices on AWS/Azure."
+      ]
     },
     {
       title: "Software Developer Intern",
       company: "Putatoe Technologies Pvt. Ltd.",
+      period: "June 2022 – Sept 2022",
       location: "India",
-      period: "June 2022 – September 2022",
       achievements: [
-        "Designed and deployed 4 REST APIs improving backend efficiency by 15%",
-        "Contributed to scalable system architecture design",
-        "Led Agile ceremonies including stand-ups, sprint planning, and retrospectives",
-        "Built MicroStrategy dashboards and ETL pipelines, reducing manual reporting by 20%",
-      ],
+        "Designed 4 REST APIs improving backend efficiency by 15%.",
+        "Built MicroStrategy dashboards and ETL pipelines, reducing manual reporting by 20%.",
+        "Led Agile ceremonies including stand-ups and sprint planning."
+      ]
     },
     {
       title: "Web Development Intern",
       company: "My Captain",
+      period: "Nov 2020 – Feb 2021",
       location: "Remote",
-      period: "November 2020 – February 2021",
       achievements: [
-        "Developed frontend and backend features for web applications",
-        "Built responsive UI using HTML, CSS, and JavaScript",
-        "Collaborated in Agile workflows to deliver features on time",
-        "Gained foundational experience in full-stack development",
-      ],
-    },
+        "Developed frontend and backend features for web applications.",
+        "Built responsive UI using HTML, CSS, and JavaScript.",
+        "Collaborated in Agile workflows to deliver features on time."
+      ]
+    }
   ];
 
   return (
-    <section id="experience" className="section-padding bg-secondary/30">
-      <div className="container-custom">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-primary font-medium">Work Experience</span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2">
-            My Professional Journey
-          </h2>
-          <p className="text-muted-foreground mt-4">
-            Building expertise through hands-on experience in software development
-          </p>
+    <section id="experience" className="py-24 bg-[#0a0a0a]">
+      <div className="container mx-auto px-6">
+        <div className="mb-16">
+          <p className="text-[#E67E22] font-black tracking-[0.3em] text-xs uppercase mb-4">Professional Path</p>
+          <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter">EXPERIENCE.</h2>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-0 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-border" />
-
-            {experiences.map((exp, index) => (
-              <div
-                key={index}
-                className={`relative flex flex-col md:flex-row gap-8 mb-12 last:mb-0 ${
-                  index % 2 === 0 ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10" />
-
-                {/* Content card */}
-                <div className={`glass-card-hover p-6 ml-8 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? "md:mr-8" : "md:ml-8"}`}>
-                  <div className="flex items-start justify-between flex-wrap gap-2 mb-4">
-                    <div>
-                      <h3 className="text-lg font-heading font-bold">{exp.title}</h3>
-                      <p className="text-primary font-medium">{exp.company}</p>
-                    </div>
-                    <div className="flex items-center gap-1 text-muted-foreground text-sm">
-                      <Briefcase size={14} />
-                      <span>Internship</span>
-                    </div>
+        <div className="space-y-6">
+          {experiences.map((exp, i) => (
+            <div key={i} className="group relative bg-[#121212] p-8 md:p-10 rounded-[2.5rem] border border-white/5 hover:border-[#E67E22]/30 transition-all duration-500">
+              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                <div>
+                  <h3 className="text-2xl font-bold text-white group-hover:text-[#E67E22] transition-colors">{exp.title}</h3>
+                  <div className="flex items-center gap-3 text-gray-500 mt-1 uppercase tracking-widest text-[10px] font-bold">
+                    <span>{exp.company}</span>
+                    <span className="w-1 h-1 bg-gray-700 rounded-full" />
+                    <span className="flex items-center gap-1"><MapPin size={10}/> {exp.location}</span>
                   </div>
-
-                  <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm mb-4">
-                    <div className="flex items-center gap-1">
-                      <Calendar size={14} />
-                      <span>{exp.period}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <MapPin size={14} />
-                      <span>{exp.location}</span>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2">
-                    {exp.achievements.map((achievement, achIndex) => (
-                      <li key={achIndex} className="text-muted-foreground text-sm flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
+                </div>
+                <div className="px-4 py-2 bg-white/5 rounded-full border border-white/10 text-gray-400 text-xs font-bold tracking-tighter flex items-center gap-2">
+                  <Calendar size={12} className="text-[#E67E22]"/> {exp.period}
                 </div>
               </div>
-            ))}
-          </div>
+              <ul className="grid md:grid-cols-2 gap-4">
+                {exp.achievements.map((ach, j) => (
+                  <li key={j} className="text-gray-400 text-sm flex items-start gap-3 leading-relaxed">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#E67E22] mt-1.5 flex-shrink-0" />
+                    {ach}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>

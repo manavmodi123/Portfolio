@@ -1,98 +1,24 @@
-import { Mail, Phone, MapPin, Github, Linkedin, ArrowUpRight } from "lucide-react";
+import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react";
 
 const Contact = () => {
-  const contactInfo = [
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "Dublin, Ireland",
-      href: null,
-    },
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+353 894952924",
-      href: "tel:+353894952924",
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      value: "modimanav999@gmail.com",
-      href: "mailto:modimanav999@gmail.com",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      href: "https://github.com/manavmodii",
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      href: "https://linkedin.com/in/manavmodi123",
-    },
-  ];
-
   return (
-    <section id="contact" className="section-padding bg-secondary/30">
-      <div className="container-custom">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-primary font-medium">Get In Touch</span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2">
-            Let's Work Together
-          </h2>
-          <p className="text-muted-foreground mt-4">
-            Have a project in mind? I'd love to hear about it. Let's connect!
-          </p>
-        </div>
-
-        <div className="max-w-xl mx-auto space-y-8">
-          {/* Contact Info */}
-          <div className="space-y-6">
-            {contactInfo.map((info, index) => (
-              <div
-                key={index}
-                className="glass-card-hover p-5 flex items-center gap-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)]"
-              >
-                <div className="p-3 rounded-xl bg-primary/10 transition-all duration-300 group-hover:bg-primary/20">
-                  <info.icon size={22} className="text-primary transition-transform duration-300" />
-                </div>
-                <div>
-                  <p className="text-muted-foreground text-sm">{info.label}</p>
-                  {info.href ? (
-                    <a
-                      href={info.href}
-                      className="font-medium hover:text-primary transition-colors"
-                    >
-                      {info.value}
-                    </a>
-                  ) : (
-                    <p className="font-medium">{info.value}</p>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Social Links */}
-          <div className="flex gap-4">
-            {socialLinks.map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="glass-card-hover p-4 flex items-center gap-3 group flex-1 transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(var(--primary-rgb),0.3)]"
-              >
-                <social.icon size={22} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                <span className="font-medium">{social.label}</span>
-                <ArrowUpRight size={16} className="ml-auto text-muted-foreground group-hover:text-primary transition-colors" />
-              </a>
-            ))}
+    <section id="contact" className="py-24 bg-[#0F0F0F]">
+      <div className="container mx-auto px-6 text-center">
+        <h2 className="text-6xl md:text-8xl font-bold text-white tracking-tighter mb-12">LET'S <span className="text-[#E67E22]">SYNC.</span></h2>
+        
+        <div className="max-w-2xl mx-auto bg-white/5 p-12 rounded-[3rem] border border-white/10">
+          <p className="text-2xl text-gray-400 mb-8 font-medium">Have a project in mind or just want to say hi?</p>
+          <a href="mailto:modimanav999@gmail.com" className="text-3xl md:text-4xl font-bold text-white hover:text-[#E67E22] transition-colors break-all underline underline-offset-8">
+            modimanav999@gmail.com
+          </a>
+          
+          <div className="flex justify-center gap-8 mt-12">
+            <a href="https://www.linkedin.com/in/manavmodi/" className="flex items-center gap-2 text-gray-500 hover:text-white font-bold tracking-widest uppercase text-xs">LinkedIn <ArrowUpRight size={14}/></a>
+            <a href="https://github.com/manavmodi123" className="flex items-center gap-2 text-gray-500 hover:text-white font-bold tracking-widest uppercase text-xs">GitHub <ArrowUpRight size={14}/></a>
           </div>
         </div>
+
+        
       </div>
     </section>
   );
