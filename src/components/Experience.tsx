@@ -3,6 +3,17 @@ import { Briefcase, Calendar, MapPin } from "lucide-react";
 const Experience = () => {
   const experiences = [
     {
+      title: "Software Engineering Intern",
+      company: "Relic Fresh Limited",
+      location: "Remote",
+      period: "Nov 2025 – Present",
+      achievements: [
+        "Developing and maintaining backend services using Node.js and REST APIs and React-based frontends for internal systems",
+        "Collaborating with cross-functional teams to integrate GenAI-enabled automation into operational workflows",
+        "Contributing to cloud-native, serverless microservices, improving scalability, reliability, and production stability",
+      ],
+    },
+    {
       title: "Software Developer Intern",
       company: "Putatoe Technologies Pvt. Ltd.",
       location: "India",
