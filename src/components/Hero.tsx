@@ -46,7 +46,7 @@ const Hero = () => {
           {/* Top label */}
           <div className="animate-fade-in-up mb-8">
             <span className="text-primary font-semibold tracking-widest uppercase text-sm">
-              Software Developer & Data Scientist
+              Software Developer
             </span>
           </div>
 
