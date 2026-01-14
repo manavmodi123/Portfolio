@@ -30,7 +30,7 @@ const Navbar = () => {
             
             {/* Updated Button: Resume Link */}
             <a 
-              href="https://drive.google.com/file/d/1lxcNasojYzdztBv_lvx4mK9lwj_LZFBR/view?usp=sharing" // Replace with your actual file path in the public folder
+              href="https://drive.google.com/file/d/1adJPy__9kiGANfOJEq6g1K5bUTy5Ed8W/view?usp=sharing" // Replace with your actual file path in the public folder
               target="_blank" 
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-2 bg-[#E67E22] text-white rounded-full text-xs font-bold hover:scale-105 hover:bg-white hover:text-black transition-all duration-300 shadow-lg shadow-[#E67E22]/20"
