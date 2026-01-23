@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
   }, [text, isDeleting, index, roles]);
 
   const stats: StatItem[] = [
-    { v: "01", l: "YEAR EXP" },
+    { v: "2+", l: "YEAR EXP" },
     { v: "10+", l: "PROJECTS" },
     { v: "04+", l: "CERTS" }
   ];

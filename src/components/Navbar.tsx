@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className={`flex items-center justify-between px-8 h-16 rounded-full transition-all border border-white/5 ${scrolled ? "bg-black/60 backdrop-blur-xl" : "bg-transparent"}`}>
           <a href="#home" className="text-xl font-bold tracking-tighter uppercase">
-            MANAV <span className="text-[#E67E22]">MODI</span>
+            Manav <span className="text-[#E67E22]">Modi</span>
           </a>
 
           <div className="hidden md:flex items-center gap-8">

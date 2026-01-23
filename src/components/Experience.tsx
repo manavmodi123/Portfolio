@@ -16,7 +16,7 @@ const Experience = () => {
     {
       title: "Software Developer Intern",
       company: "Putatoe Technologies Pvt. Ltd.",
-      period: "June 2022 – Sept 2022",
+      period: "November 2022 – May 2024",
       location: "India",
       achievements: [
         "Designed 4 REST APIs improving backend efficiency by 15%.",
