@@ -5,18 +5,18 @@ const Experience = () => {
     {
       title: "Software Developer Intern",
       company: "Relic Fresh Limited",
-      period: "Nov 2025 – Present",
+      period: "November 2025 – Present",
       location: "Ireland, Remote",
       achievements: [
         "Developing backend services using Node.js and REST APIs for internal systems.",
         "Integrating GenAI-enabled automation into operational workflows.",
-        "Contributing to cloud-native, serverless microservices on AWS/Azure."
+        "Contributing to cloud-native, serverless microservices on Azure."
       ]
     },
     {
       title: "Software Developer Intern",
       company: "Putatoe Technologies Pvt. Ltd.",
-      period: "November 2022 – May 2024",
+      period: "December 2022 – May 2024",
       location: "India",
       achievements: [
         "Designed 4 REST APIs improving backend efficiency by 15%.",
@@ -27,7 +27,7 @@ const Experience = () => {
     {
       title: "Web Development Intern",
       company: "My Captain",
-      period: "Nov 2020 – Feb 2021",
+      period: "November 2020 – February 2021",
       location: "Remote",
       achievements: [
         "Developed frontend and backend features for web applications.",
